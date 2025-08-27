@@ -5,8 +5,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Phone, MessageCircle, MapPin } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     service: "",
@@ -18,7 +20,7 @@ const Contact = () => {
     e.preventDefault();
     
     const whatsappMessage = `
-🌴 VICE CONCIERGE BOOKING REQUEST 🌴
+🌴 ANGELS INTERNATIONAL BOOKING REQUEST 🌴
 
 Name: ${formData.name}
 Phone: ${formData.phone}
@@ -32,7 +34,7 @@ Please contact me to confirm this booking!
     window.open(whatsappUrl, '_blank');
     
     toast({
-      title: "Request Sent!",
+      title: t('contact.success'),
       description: "Your booking request has been sent via WhatsApp. We'll contact you shortly!",
     });
 
@@ -40,7 +42,7 @@ Please contact me to confirm this booking!
   };
 
   const handleQuickContact = () => {
-    const quickMessage = "Hello! I'm interested in your Vice Concierge services. Please tell me more about what you offer.";
+    const quickMessage = "Hello! I'm interested in your Angels International services. Please tell me more about what you offer.";
     const whatsappUrl = `https://wa.me/50661500559?text=${encodeURIComponent(quickMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -50,10 +52,10 @@ Please contact me to confirm this booking!
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-6 text-glow">
-            GET IN TOUCH
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to experience luxury? Book your services through WhatsApp
+            {t('contact.subtitle')}
           </p>
         </div>
 

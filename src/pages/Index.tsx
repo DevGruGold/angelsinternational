@@ -3,16 +3,21 @@ import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import GeminiChat from "@/components/GeminiChat";
 import AudioPlayer from "@/components/AudioPlayer";
+import LanguageToggle from "@/components/LanguageToggle";
+import { LanguageProvider } from "@/hooks/useLanguage";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-vice-dark">
-      <AudioPlayer />
-      <Hero />
-      <Services />
-      <Contact />
-      <GeminiChat />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-vice-dark">
+        <AudioPlayer />
+        <LanguageToggle />
+        <Hero />
+        <Services />
+        <Contact />
+        <GeminiChat />
+      </div>
+    </LanguageProvider>
   );
 };
 

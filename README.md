@@ -1,73 +1,106 @@
-# Welcome to your Lovable project
+# Angels International 🌴
 
-## Project info
+**Premium Concierge Services in Costa Rica**
 
-**URL**: https://lovable.dev/projects/0433c606-c371-40ed-9a78-9f095a3d8746
+Angels International brings luxury lifestyle services to Costa Rica with that distinctive Vice City flair. Our platform offers seamless booking through WhatsApp for express food delivery, professional house cleaning, and world-class private chef experiences.
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- **Multi-language Support**: English and Spanish interface with toggle switch
+- **Express Food Delivery**: Lightning-fast delivery from Costa Rica's finest restaurants
+- **House Cleaning Services**: Professional cleaning that maintains premium standards
+- **Private Chef Services**: Gourmet dining experiences in the comfort of your home
+- **WhatsApp Integration**: Seamless booking system via WhatsApp
+- **AI Assistant**: Embedded Gemini AI with multimodal capabilities for customer support
+- **Vice City Aesthetic**: Retro 80s neon design inspired by GTA Vice City
 
-**Use Lovable**
+## 🎨 Design
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0433c606-c371-40ed-9a78-9f095a3d8746) and start prompting.
+The website features a stunning Vice City-inspired design with:
+- Neon color palette (hot pink, cyan, purple, orange)
+- Custom 80s fonts (Orbitron, Rajdhani)
+- Animated neon effects and glows
+- Grid background patterns
+- Responsive design for all devices
+- Beautiful GTA-style character imagery
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠 Technology Stack
 
-**Use your preferred IDE**
+- **Frontend**: React + TypeScript + Vite
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Radix UI (shadcn/ui)
+- **State Management**: React Hooks
+- **AI Integration**: Google Gemini API
+- **Form Handling**: React Hook Form with Zod validation
+- **Icons**: Lucide React
+- **Toast Notifications**: Sonner
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🌐 Services
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Express Food Delivery
+- Under 30-minute delivery
+- Premium restaurant partnerships
+- Real-time order tracking
 
-Follow these steps:
+### House Cleaning
+- Deep cleaning services
+- Eco-friendly products
+- Flexible scheduling
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Private Chef
+- Custom menu creation
+- Fresh, premium ingredients
+- Full-service dining experiences
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📱 Booking System
 
-# Step 3: Install the necessary dependencies.
-npm i
+Our WhatsApp integration allows customers to:
+- Book services instantly via WhatsApp
+- Send pre-formatted booking requests
+- Receive immediate confirmation
+- Communicate directly with our team
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+**WhatsApp Number**: +506 6150 0559
 
-**Edit a file directly in GitHub**
+## 🌍 Multi-language Support
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The platform supports both English and Spanish, allowing users to toggle between languages with a simple switch. All content, including:
+- Hero sections
+- Service descriptions
+- Contact forms
+- AI assistant responses
 
-**Use GitHub Codespaces**
+## 🤖 AI Assistant
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Powered by Google Gemini AI, our chat assistant provides:
+- 24/7 customer support
+- Service information and recommendations
+- Costa Rica travel and dining advice
+- Booking assistance
+- Multilingual support
 
-## What technologies are used for this project?
+## 🎵 Immersive Experience
 
-This project is built with:
+The website features atmospheric background music that auto-plays to enhance the Vice City experience, creating an immersive environment for users.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📞 Contact Information
 
-## How can I deploy this project?
+- **Website**: [angels-international.lovable.app](https://angels-international.lovable.app)
+- **WhatsApp**: +506 6150 0559
+- **Service Area**: Costa Rica (Nationwide)
+- **Hours**: 24/7 Service Available
 
-Simply open [Lovable](https://lovable.dev/projects/0433c606-c371-40ed-9a78-9f095a3d8746) and click on Share -> Publish.
+## 🏆 Why Choose Angels International?
 
-## Can I connect a custom domain to my Lovable project?
+- **Premium Quality**: Only the finest service providers
+- **Speed**: Express delivery and rapid response times
+- **Convenience**: Easy WhatsApp booking system
+- **Reliability**: Professional, dependable service
+- **Style**: Unique Vice City aesthetic and experience
+- **Technology**: Cutting-edge AI support and modern platform
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+*Experience luxury lifestyle services like never before. Angels International - Where premium meets paradise.*
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Ready to experience Angels International?** [Book now via WhatsApp](https://wa.me/50661500559)

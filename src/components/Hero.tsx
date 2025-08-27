@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/vice-city-hero.jpg";
+import angelsCharacters from "@/assets/angels-characters.jpg";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
       {/* Background Image */}
@@ -10,20 +14,25 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       
+      {/* Angels Characters */}
+      <div 
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/2 h-full bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: `url(${angelsCharacters})` }}
+      />
+      
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-vice opacity-60" />
       
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         <h1 className="text-6xl md:text-8xl font-orbitron font-black mb-6 text-neon text-glow">
-          VICE CONCIERGE
+          {t('hero.title')}
         </h1>
         <div className="text-xl md:text-2xl font-rajdhani mb-8 text-secondary text-neon">
-          COSTA RICA'S PREMIUM LIFESTYLE SERVICES
+          {t('hero.subtitle')}
         </div>
         <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-muted-foreground">
-          Experience luxury concierge services with that Vice City flair. 
-          From express deliveries to private chefs, we've got your lifestyle covered.
+          {t('hero.description')}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -31,13 +40,13 @@ const Hero = () => {
             className="btn-neon"
             onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            EXPLORE SERVICES
+            {t('hero.exploreServices')}
           </Button>
           <Button 
             className="btn-cyan"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            BOOK NOW
+            {t('hero.bookNow')}
           </Button>
         </div>
       </div>

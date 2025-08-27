@@ -33,7 +33,7 @@ const GeminiChat = () => {
       setShowApiInput(false);
       setMessages([{
         role: 'assistant',
-        content: 'Hello! I\'m your Vice Concierge AI assistant. I can help you with our services, answer questions about Costa Rica, and assist with bookings. How can I help you today?',
+        content: 'Hello! I\'m your Angels International AI assistant. I can help you with our services, answer questions about Costa Rica, and assist with bookings. How can I help you today?',
         timestamp: new Date()
       }]);
       toast({
@@ -65,7 +65,7 @@ const GeminiChat = () => {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `You are Vice Concierge AI, an assistant for a luxury concierge service in Costa Rica. The company offers express food delivery, house cleaning, and private chef services. Respond in a friendly, professional manner with a slight Vice City/80s flair. Help users with service information, Costa Rica recommendations, and booking assistance. User question: ${input}`
+              text: `You are Angels International AI, an assistant for a luxury concierge service in Costa Rica. The company offers express food delivery, house cleaning, and private chef services. Respond in a friendly, professional manner with a slight Vice City/80s flair. Help users with service information, Costa Rica recommendations, and booking assistance. User question: ${input}`
             }]
           }],
           generationConfig: {
@@ -124,7 +124,7 @@ const GeminiChat = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Bot className="w-5 h-5" />
-              <span className="font-orbitron font-bold">VICE AI</span>
+              <span className="font-orbitron font-bold">ANGELS AI</span>
             </div>
             <Button
               variant="ghost"

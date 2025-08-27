@@ -46,11 +46,9 @@ const AudioPlayer = () => {
         ref={audioRef}
         loop
         muted={isMuted}
-        preload="metadata"
-      >
-        <source src="https://www.youtube.com/watch?v=0R6WIbx8ysE" type="video/mp4" />
-        {/* Fallback: You might want to host the audio file directly */}
-      </audio>
+        preload="auto"
+        src="/vice-city-theme.mp3"
+      />
       
       <Button
         onClick={toggleMute}
