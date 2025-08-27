@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* GTA Vice City Design System - Neon 80s Aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Vice City Dark Theme */
+    --background: 271 100% 2%;
+    --foreground: 301 100% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 271 50% 8%;
+    --card-foreground: 301 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 271 50% 8%;
+    --popover-foreground: 301 100% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon Pink Primary */
+    --primary: 301 100% 50%;
+    --primary-foreground: 271 100% 2%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cyan Secondary */
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 271 100% 2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Purple Muted */
+    --muted: 271 50% 15%;
+    --muted-foreground: 301 50% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Neon Orange Accent */
+    --accent: 16 100% 50%;
+    --accent-foreground: 271 100% 2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 271 50% 20%;
+    --input: 271 50% 15%;
+    --ring: 301 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Vice City Custom Colors */
+    --vice-pink: 301 100% 50%;
+    --vice-cyan: 180 100% 50%;
+    --vice-purple: 271 100% 40%;
+    --vice-orange: 16 100% 50%;
+    --vice-dark: 271 100% 2%;
+    --vice-darker: 271 100% 1%;
+
+    /* Gradients */
+    --gradient-vice: linear-gradient(135deg, hsl(var(--vice-pink)), hsl(var(--vice-purple)));
+    --gradient-neon: linear-gradient(90deg, hsl(var(--vice-cyan)), hsl(var(--vice-pink)));
+    --gradient-sunset: linear-gradient(180deg, hsl(var(--vice-orange)), hsl(var(--vice-pink)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--vice-dark)), hsl(var(--vice-darker)));
+
+    /* Shadows & Glows */
+    --shadow-neon-pink: 0 0 20px hsl(var(--vice-pink) / 0.5);
+    --shadow-neon-cyan: 0 0 20px hsl(var(--vice-cyan) / 0.5);
+    --shadow-neon-orange: 0 0 20px hsl(var(--vice-orange) / 0.5);
+    --glow-intense: 0 0 40px currentColor;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +124,78 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-rajdhani;
+    background: var(--gradient-dark);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Neon Button Variants */
+  .btn-neon {
+    @apply relative px-8 py-3 bg-transparent border-2 border-primary text-primary font-orbitron font-bold uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+    box-shadow: var(--shadow-neon-pink);
+  }
+
+  .btn-neon:hover {
+    box-shadow: var(--glow-intense);
+    transform: translateY(-2px);
+  }
+
+  .btn-cyan {
+    @apply border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground;
+    box-shadow: var(--shadow-neon-cyan);
+  }
+
+  .btn-orange {
+    @apply border-accent text-accent hover:bg-accent hover:text-accent-foreground;
+    box-shadow: var(--shadow-neon-orange);
+  }
+
+  /* Neon Text Effects */
+  .text-neon {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+
+  /* Pulse Animation */
+  .pulse-neon {
+    animation: pulse-neon 2s infinite;
+  }
+
+  @keyframes pulse-neon {
+    0%, 100% {
+      box-shadow: 0 0 10px currentColor;
+    }
+    50% {
+      box-shadow: 0 0 30px currentColor, 0 0 60px currentColor;
+    }
+  }
+
+  /* Grid Lines Effect */
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(255, 16, 240, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 16, 240, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Service Cards */
+  .service-card {
+    @apply relative p-6 bg-card border border-primary/30 rounded-lg backdrop-blur-sm transition-all duration-300 hover:border-primary hover:shadow-lg;
+    box-shadow: var(--shadow-neon-pink);
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--glow-intense);
   }
 }

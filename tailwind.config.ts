@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'orbitron': ['Orbitron', 'monospace'],
+				'rajdhani': ['Rajdhani', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,27 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				vice: {
+					pink: 'hsl(var(--vice-pink))',
+					cyan: 'hsl(var(--vice-cyan))',
+					purple: 'hsl(var(--vice-purple))',
+					orange: 'hsl(var(--vice-orange))',
+					dark: 'hsl(var(--vice-dark))',
+					darker: 'hsl(var(--vice-darker))'
 				}
+			},
+			backgroundImage: {
+				'gradient-vice': 'var(--gradient-vice)',
+				'gradient-neon': 'var(--gradient-neon)',
+				'gradient-sunset': 'var(--gradient-sunset)',
+				'gradient-dark': 'var(--gradient-dark)',
+			},
+			boxShadow: {
+				'neon-pink': 'var(--shadow-neon-pink)',
+				'neon-cyan': 'var(--shadow-neon-cyan)',
+				'neon-orange': 'var(--shadow-neon-orange)',
+				'glow': 'var(--glow-intense)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
