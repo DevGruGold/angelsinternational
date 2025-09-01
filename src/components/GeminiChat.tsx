@@ -16,31 +16,38 @@ const GeminiChat = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [apiKey, setApiKey] = useState("");
-  const [showApiInput, setShowApiInput] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-  const handleApiKeySubmit = () => {
-    if (apiKey.trim()) {
-      setShowApiInput(false);
-      setMessages([{
-        role: 'assistant',
-        content: 'Hello! I\'m your Angels International AI assistant. I can help you with our services, answer questions about Costa Rica, and assist with bookings. How can I help you today?',
-        timestamp: new Date()
-      }]);
-      toast({
-        title: "AI Assistant Ready",
-        description: "You can now chat with the Gemini AI assistant!",
-      });
+  useEffect(() => {
+    if (isOpen && !messages.length) {
+      if (GEMINI_API_KEY) {
+        setMessages([{
+          role: 'assistant',
+          content: 'Hello! I\'m your Angels International AI assistant. I can help you with our services, answer questions about Costa Rica, and assist with bookings. How can I help you today?',
+          timestamp: new Date()
+        }]);
+        toast({
+          title: "AI Assistant Ready",
+          description: "You can now chat with the Gemini AI assistant!",
+        });
+      } else {
+        toast({
+          title: "API Key Missing",
+          description: "Gemini API key is not configured. Please set VITE_GEMINI_API_KEY in your environment variables.",
+          variant: "destructive",
+        });
+      }
     }
+  }, [isOpen, messages.length, GEMINI_API_KEY]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const sendMessage = async () => {
@@ -57,7 +64,7 @@ const GeminiChat = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + apiKey, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +72,7 @@ const GeminiChat = () => {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `You are Angels International AI, an assistant for a luxury concierge service in Costa Rica. The company offers express food delivery, house cleaning, and private chef services. Respond in a friendly, professional manner with a slight Vice City/80s flair. Help users with service information, Costa Rica recommendations, and booking assistance. User question: ${input}`
+              text: `You are Angels International AI, an assistant for a luxury concierge service in Costa Rica. The company offers express food delivery, house cleaning, and private chef services. Respond in a friendly, professional manner with a slight Vice City/80s flair. Help users with service information, Costa Rica recommendations, and booking assistance. User question: ${userMessage.content}`
             }]
           }],
           generationConfig: {
@@ -95,7 +102,7 @@ const GeminiChat = () => {
       console.error('Error:', error);
       toast({
         title: "Error",
-        description: "Failed to get AI response. Please check your API key.",
+        description: "Failed to get AI response. Please check your API key and network connection.",
         variant: "destructive",
       });
     } finally {
@@ -136,27 +143,6 @@ const GeminiChat = () => {
             </Button>
           </div>
         </div>
-
-        {/* API Key Input */}
-        {showApiInput && (
-          <div className="p-4 border-b border-primary/30">
-            <p className="text-sm text-muted-foreground mb-2">
-              Enter your Google Gemini API key to start chatting:
-            </p>
-            <div className="flex gap-2">
-              <Input
-                type="password"
-                placeholder="API Key"
-                value={apiKey}
-                onChange={(e) => setApiKey(e.target.value)}
-                className="bg-background/50"
-              />
-              <Button onClick={handleApiKeySubmit} className="btn-neon">
-                Start
-              </Button>
-            </div>
-          </div>
-        )}
 
         {/* Messages */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -207,30 +193,30 @@ const GeminiChat = () => {
         </div>
 
         {/* Input */}
-        {!showApiInput && (
-          <div className="p-4 border-t border-primary/30">
-            <div className="flex gap-2">
-              <Input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-                placeholder="Ask about our services..."
-                className="bg-background/50"
-                disabled={isLoading}
-              />
-              <Button
-                onClick={sendMessage}
-                disabled={isLoading || !input.trim()}
-                className="btn-neon"
-              >
-                <Send className="w-4 h-4" />
-              </Button>
-            </div>
+        <div className="p-4 border-t border-primary/30">
+          <div className="flex gap-2">
+            <Input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+              placeholder="Ask about our services..."
+              className="bg-background/50"
+              disabled={isLoading}
+            />
+            <Button
+              onClick={sendMessage}
+              disabled={isLoading || !input.trim()}
+              className="btn-neon"
+            >
+              <Send className="w-4 h-4" />
+            </Button>
           </div>
-        )}
+        </div>
       </Card>
     </div>
   );
 };
 
 export default GeminiChat;
+
+
