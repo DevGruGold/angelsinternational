@@ -14,36 +14,36 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       
-      {/* Angels Characters */}
+      {/* Angels Characters - Mobile First Responsive */}
       <div 
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/2 h-full bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 h-full bg-cover bg-center bg-no-repeat opacity-60"
         style={{ backgroundImage: `url(${angelsCharacters})` }}
       />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-vice opacity-60" />
+      {/* Gradient Overlay - Further reduced opacity for better character visibility */}
+      <div className="absolute inset-0 bg-gradient-vice opacity-25" />
       
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-        <h1 className="text-6xl md:text-8xl font-orbitron font-black mb-6 text-neon text-glow">
+      {/* Content - Mobile First Layout */}
+      <div className="relative z-10 text-center container-mobile">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-pricedown font-black mb-4 sm:mb-6 text-neon text-glow leading-tight">
           {t('hero.title')}
         </h1>
-        <div className="text-xl md:text-2xl font-rajdhani mb-8 text-secondary text-neon">
+        <div className="text-lg sm:text-xl md:text-2xl font-rajdhani mb-6 sm:mb-8 text-secondary text-neon">
           {t('hero.subtitle')}
         </div>
-        <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-muted-foreground">
+        <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-xs sm:max-w-md md:max-w-2xl mx-auto text-muted-foreground px-4">
           {t('hero.description')}
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
           <Button 
-            className="btn-neon"
+            className="btn-neon w-full sm:w-auto"
             onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
           >
             {t('hero.exploreServices')}
           </Button>
           <Button 
-            className="btn-cyan"
+            className="btn-cyan w-full sm:w-auto"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             {t('hero.bookNow')}

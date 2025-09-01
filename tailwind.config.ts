@@ -19,6 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'pricedown': ['Pricedown', 'Orbitron', 'monospace'],
 				'orbitron': ['Orbitron', 'monospace'],
 				'rajdhani': ['Rajdhani', 'sans-serif'],
 			},

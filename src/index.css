@@ -4,6 +4,15 @@
 
 /* GTA Vice City Design System - Neon 80s Aesthetic */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/pricedown');
+
+@font-face {
+  font-family: 'Pricedown';
+  src: url('https://fonts.cdnfonts.com/s/12442/pricedown.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   :root {
@@ -129,17 +138,107 @@
     min-height: 100vh;
   }
 
-  h1, h2, h3 {
+  h1 {
+    font-family: 'Pricedown', 'Orbitron', monospace;
+    font-weight: 700;
+  }
+  
+  h2, h3 {
     font-family: 'Orbitron', monospace;
     font-weight: 700;
   }
 }
 
 @layer components {
-  /* Neon Button Variants */
+  /* Mobile-first responsive utilities */
+  .container-mobile {
+    @apply px-4 mx-auto;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 640px) {
+    .container-mobile {
+      @apply px-6;
+      max-width: 640px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-mobile {
+      @apply px-8;
+      max-width: 768px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-mobile {
+      max-width: 1024px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container-mobile {
+      max-width: 1280px;
+    }
+  }
+
+  /* Mobile-first typography */
+  .text-responsive-xl {
+    @apply text-2xl;
+  }
+  
+  @media (min-width: 640px) {
+    .text-responsive-xl {
+      @apply text-3xl;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .text-responsive-xl {
+      @apply text-4xl;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-responsive-xl {
+      @apply text-5xl;
+    }
+  }
+  
+  .text-responsive-lg {
+    @apply text-xl;
+  }
+  
+  @media (min-width: 640px) {
+    .text-responsive-lg {
+      @apply text-2xl;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .text-responsive-lg {
+      @apply text-3xl;
+    }
+  }
+
+  /* Neon Button Variants - Mobile First */
   .btn-neon {
-    @apply relative px-8 py-3 bg-transparent border-2 border-primary text-primary font-orbitron font-bold uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+    @apply relative px-4 py-2 text-sm bg-transparent border-2 border-primary text-primary font-orbitron font-bold uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
     box-shadow: var(--shadow-neon-pink);
+    min-height: 44px; /* Touch target size */
+    font-family: 'Orbitron', monospace;
+  }
+  
+  @media (min-width: 640px) {
+    .btn-neon {
+      @apply px-6 py-3 text-base;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .btn-neon {
+      @apply px-8 py-3;
+    }
   }
 
   .btn-neon:hover {
