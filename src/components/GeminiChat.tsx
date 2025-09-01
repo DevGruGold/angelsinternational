@@ -69,12 +69,12 @@ const GeminiChat = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `You are Angels International AI, an assistant for a luxury concierge service in Costa Rica. The company offers express food delivery, house cleaning, and private chef services. Respond in a friendly, professional manner with a slight Vice City/80s flair. Help users with service information, Costa Rica recommendations, and booking assistance. User question: ${userMessage.content}`
-            }]
-          }],
+          body: JSON.stringify({
+            contents: [{
+              parts: [{
+                text: `You are Angels International AI, an assistant for a luxury concierge service in Costa Rica. The company offers express food delivery, house cleaning, and private chef services. Respond in a friendly, professional manner with a slight Vice City/80s flair. Help users with service information, Costa Rica recommendations, and booking assistance. User question: ${userMessage.content}`
+              }]
+            }],
           generationConfig: {
             temperature: 0.7,
             topK: 40,
@@ -124,10 +124,10 @@ const GeminiChat = () => {
   }
 
   return (
-    <div className="fixed inset-x-4 bottom-4 z-50 w-auto h-[70vh] md:w-96 md:h-[500px] md:right-6 md:left-auto flex flex-col">
-      <Card className="flex-1 flex flex-col bg-card/95 backdrop-blur-sm border-primary/30">
+    <div className="fixed inset-x-4 bottom-4 top-4 z-50 w-auto md:w-96 md:h-[500px] md:right-6 md:left-auto md:top-auto flex flex-col">
+      <Card className="flex-1 flex flex-col bg-card/95 backdrop-blur-sm border-primary/30 max-h-full">
         {/* Header */}
-        <div className="p-4 border-b border-primary/30 bg-gradient-vice text-white">
+        <div className="p-4 border-b border-primary/30 bg-gradient-vice text-white flex-shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Bot className="w-5 h-5" />
@@ -193,20 +193,20 @@ const GeminiChat = () => {
         </div>
 
         {/* Input */}
-        <div className="p-4 border-t border-primary/30">
+        <div className="p-4 border-t border-primary/30 flex-shrink-0">
           <div className="flex gap-2">
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
               placeholder="Ask about our services..."
-              className="bg-background/50"
+              className="bg-background/50 flex-1"
               disabled={isLoading}
             />
             <Button
               onClick={sendMessage}
               disabled={isLoading || !input.trim()}
-              className="btn-neon"
+              className="btn-neon flex-shrink-0"
             >
               <Send className="w-4 h-4" />
             </Button>
