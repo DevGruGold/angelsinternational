@@ -124,7 +124,7 @@ const GeminiChat = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-96 h-[500px] flex flex-col">
+    <div className="fixed inset-x-4 bottom-4 z-50 w-auto h-[70vh] md:w-96 md:h-[500px] md:right-6 md:left-auto flex flex-col">
       <Card className="flex-1 flex flex-col bg-card/95 backdrop-blur-sm border-primary/30">
         {/* Header */}
         <div className="p-4 border-b border-primary/30 bg-gradient-vice text-white">
